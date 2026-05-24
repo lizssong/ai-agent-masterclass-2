@@ -347,4 +347,37 @@
   @media (prefers-reduced-motion: reduce) {
     .fade-up, .ticker-track { animation: none; }
   }
+
+  /* ── Mobile Responsive ── */
+  @media (max-width: 640px) {
+    .band {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+    .band-sm {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+    .btn-primary,
+    .btn-secondary {
+      font-size: 15px;
+      padding: 13px 18px;
+      width: 100%;
+      justify-content: center;
+    }
+    .card-feature,
+    .card-elevated {
+      padding: 20px;
+    }
+    .cat-purple, .cat-pink, .cat-blue,
+    .cat-orange, .cat-green, .cat-yellow {
+      padding: 20px;
+    }
+  }
+
+  /* ── Touch target optimization ── */
+  @media (hover: none) {
+    .btn-primary:hover { background-color: #080808; }
+    .btn-secondary:hover { border-color: #d8d8d8; }
+  }
 }

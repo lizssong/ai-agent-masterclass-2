@@ -73,6 +73,57 @@ const OUTCOMES = [
   { icon: "📣", title: "SNS 자동화", desc: "콘텐츠 기획부터 발행까지 자동화 시스템", color: "#ffae13" },
 ];
 
+const INSTRUCTORS = [
+  {
+    name: "이현구",
+    week: "1주차",
+    specialty: "AI 업무설계 · 보고서 자동화",
+    desc: "AI 기반 기획서·제안서 자동화 전문가. 컨설팅 현장에서 직접 검증한 AI 업무 시스템을 전달합니다.",
+    photo: "/manus-storage/face_hyungu_c03e7b17.webp",
+    color: "#7a3dff",
+  },
+  {
+    name: "김성식",
+    week: "2주차",
+    specialty: "AI 리서치 · 데이터 분석",
+    desc: "방대한 데이터를 AI로 빠르게 분석하고 인사이트를 도출하는 실전 리서치 전문가입니다.",
+    photo: "/manus-storage/face_sungsik_22b97da1.webp",
+    color: "#3b89ff",
+  },
+  {
+    name: "홍용기",
+    week: "3주차",
+    specialty: "노코드 웹앱 · DB 설계",
+    desc: "코딩 없이 실무에 바로 쓰는 웹앱을 만드는 노코드 전문가. 앤티그래비티 활용 강의를 담당합니다.",
+    photo: "/manus-storage/face_yongki_c6867873.webp",
+    color: "#ff6b00",
+  },
+  {
+    name: "송민경",
+    week: "4주차",
+    specialty: "AI 이미지 · 영상 콘텐츠",
+    desc: "AI 아트 작가이자 캔바 지국장. 강의자료·홍보물·영상을 AI로 자동화하는 콘텐츠 전문가입니다.",
+    photo: "/manus-storage/face_minkyung_14909d2f.webp",
+    color: "#ed52cb",
+  },
+  {
+    name: "윤성임",
+    week: "5주차",
+    specialty: "맞춤형 챗봇 · AI 어시스턴트",
+    desc: "업무 특화 AI 챗봇 설계 전문가. 나만의 AI 어시스턴트를 직접 만들고 바로 활용하는 법을 알려드립니다.",
+    photo: "/manus-storage/face_sunglim_df37fdb1.webp",
+    color: "#00d722",
+  },
+  {
+    name: "홍진경",
+    week: "6주차",
+    specialty: "SNS 자동화 · 콘텐츠 시스템",
+    desc: "SNS 콘텐츠 기획부터 발행까지 자동화 시스템을 구축하는 디지털 마케팅 전문가입니다.",
+    photo: "/manus-storage/face_jinkyung_e034ce81.webp",
+    color: "#ffae13",
+  },
+];
+
 const INCLUDES = [
   "6주 온라인 실시간 강의 (매주 일요일 저녁 8~10시)",
   "6명 현직 전문 강사 직강",
@@ -119,6 +170,123 @@ function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
 
 // ── Sub-components ────────────────────────────────────────────────────────────
 
+function InstructorsSection() {
+  return (
+    <section className="band" style={{ backgroundColor: "#f8f8f8" }} id="instructors">
+      <div className="container">
+        <div style={{ marginBottom: "56px" }}>
+          <p className="eyebrow" style={{ marginBottom: "12px" }}>Meet the Instructors</p>
+          <h2 className="display-lg">6명의 현직 전문 강사</h2>
+          <p style={{ marginTop: "16px", fontSize: "17px", color: "#5a5a5a", maxWidth: "560px", lineHeight: 1.7 }}>
+            각 분야 최전선에서 활동 중인 전문가들이 실무에서 검증된 AI 업무 시스템을 직접 전달합니다.
+          </p>
+        </div>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+            gap: "24px",
+          }}
+        >
+          {INSTRUCTORS.map((ins, i) => (
+            <div
+              key={i}
+              style={{
+                backgroundColor: "#ffffff",
+                borderRadius: "12px",
+                overflow: "hidden",
+                boxShadow: "0 2px 12px rgba(0,0,0,0.08)",
+                transition: "transform 0.2s ease, box-shadow 0.2s ease",
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLDivElement).style.transform = "translateY(-4px)";
+                (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 28px rgba(0,0,0,0.14)";
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
+                (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 12px rgba(0,0,0,0.08)";
+              }}
+            >
+              {/* 상단 컬러 바 */}
+              <div style={{ height: "4px", backgroundColor: ins.color }} />
+
+              {/* 카드 본문 */}
+              <div style={{ padding: "24px" }}>
+                {/* 프로필 사진 + 이름 */}
+                <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "16px" }}>
+                  <div
+                    style={{
+                      width: "72px",
+                      height: "72px",
+                      borderRadius: "50%",
+                      overflow: "hidden",
+                      flexShrink: 0,
+                      border: `2px solid ${ins.color}`,
+                    }}
+                  >
+                    <img
+                      src={ins.photo}
+                      alt={ins.name}
+                      style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center" }}
+                    />
+                  </div>
+                  <div>
+                    <div
+                      style={{
+                        display: "inline-block",
+                        fontSize: "11px",
+                        fontWeight: 700,
+                        color: ins.color,
+                        backgroundColor: `${ins.color}18`,
+                        padding: "2px 8px",
+                        borderRadius: "4px",
+                        marginBottom: "4px",
+                        letterSpacing: "0.04em",
+                      }}
+                    >
+                      {ins.week}
+                    </div>
+                    <div style={{ fontSize: "20px", fontWeight: 700, color: "#080808", lineHeight: 1.2 }}>
+                      {ins.name}
+                    </div>
+                  </div>
+                </div>
+
+                {/* 전문 분야 */}
+                <div
+                  style={{
+                    fontSize: "13px",
+                    fontWeight: 600,
+                    color: ins.color,
+                    marginBottom: "10px",
+                    letterSpacing: "0.02em",
+                  }}
+                >
+                  {ins.specialty}
+                </div>
+
+                {/* 소개 */}
+                <p
+                  style={{
+                    fontSize: "14px",
+                    color: "#5a5a5a",
+                    lineHeight: 1.65,
+                    margin: 0,
+                  }}
+                >
+                  {ins.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 function Nav({ onApply }: { onApply: () => void }) {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -151,27 +319,32 @@ function Nav({ onApply }: { onApply: () => void }) {
         }}
       >
         {/* Logo */}
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
           <span
             style={{
-              fontSize: "15px",
+              fontSize: "clamp(13px, 3vw, 15px)",
               fontWeight: 600,
               color: "#080808",
               letterSpacing: "-0.3px",
+              whiteSpace: "nowrap",
             }}
           >
             AI Agent 마스터 클래스
           </span>
           <span
             className="badge badge-dark"
-            style={{ fontSize: "11px", padding: "3px 8px" }}
+            style={{ fontSize: "11px", padding: "3px 8px", flexShrink: 0 }}
           >
             2기
           </span>
         </div>
 
         {/* CTA */}
-        <button className="btn-primary" onClick={onApply} style={{ fontSize: "14px", padding: "10px 18px" }}>
+        <button
+          className="btn-primary"
+          onClick={onApply}
+          style={{ fontSize: "14px", padding: "10px 16px", flexShrink: 0, width: "auto" }}
+        >
           수강 신청 →
         </button>
       </div>
@@ -232,8 +405,8 @@ function HeroSection({ onApply }: { onApply: () => void }) {
     <section
       style={{
         backgroundColor: "#ffffff",
-        paddingTop: "96px",
-        paddingBottom: "96px",
+        paddingTop: "clamp(60px, 8vw, 96px)",
+        paddingBottom: "clamp(60px, 8vw, 96px)",
       }}
     >
       <div className="container">
@@ -346,7 +519,7 @@ function StatsSection() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
+            gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
             gap: "0",
           }}
         >
@@ -958,6 +1131,8 @@ export default function Home() {
       <OutcomesSection />
       <hr className="divider" />
       <CurriculumSection />
+      <hr className="divider" />
+      <InstructorsSection />
       <PricingSection />
       <CtaSection onApply={handleApply} />
       <Footer />
