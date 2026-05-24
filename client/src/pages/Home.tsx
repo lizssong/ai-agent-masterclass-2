@@ -17,7 +17,7 @@ const CURRICULUM = [
   {
     week: "1주차",
     date: "6/14",
-    topic: "AI Agent 업무설계와\n보고서·제안서 자동화",
+    topic: "보고서와 제안서,\nAI가 초안을 잡아드립니다",
     instructor: "이현구",
     catClass: "cat-purple",
     icon: "📄",
@@ -25,7 +25,7 @@ const CURRICULUM = [
   {
     week: "2주차",
     date: "6/21",
-    topic: "AI 리서치와\n데이터 분석",
+    topic: "리서치에 쏟던 시간을 줄이고,\n인사이트에 집중하세요",
     instructor: "김성식",
     catClass: "cat-blue",
     icon: "🔍",
@@ -33,7 +33,7 @@ const CURRICULUM = [
   {
     week: "3주차",
     date: "6/28",
-    topic: "앤티그래비티 활용\n미니 웹앱 만들기",
+    topic: "개발자 없이, 내 업무에 딱 맞는\n웹앱을 직접 만드는 법",
     instructor: "홍용기",
     catClass: "cat-orange",
     icon: "💻",
@@ -41,7 +41,7 @@ const CURRICULUM = [
   {
     week: "4주차",
     date: "7/5",
-    topic: "AI 이미지·영상 콘텐츠 제작과\n강의/홍보물 자동화",
+    topic: "강의자료·홍보물·영상,\nAI와 함께라면 혼자서도 충분합니다",
     instructor: "송민경",
     catClass: "cat-pink",
     icon: "🎨",
@@ -49,7 +49,7 @@ const CURRICULUM = [
   {
     week: "5주차",
     date: "7/12",
-    topic: "나만의 맞춤형\n챗봇 만들기",
+    topic: "24시간 나를 대신하는\nAI 어시스턴트, 직접 설계하기",
     instructor: "윤성임",
     catClass: "cat-green",
     icon: "🤖",
@@ -57,7 +57,7 @@ const CURRICULUM = [
   {
     week: "6주차",
     date: "7/19",
-    topic: "SNS 콘텐츠 자동화\n시스템 설계",
+    topic: "SNS 콘텐츠 고민은 끝.\n기획부터 발행까지 자동화 시스템 구축",
     instructor: "홍진경",
     catClass: "cat-yellow",
     icon: "📱",
@@ -71,14 +71,6 @@ const OUTCOMES = [
   { icon: "🎬", title: "콘텐츠 자동화", desc: "이미지·영상·홍보물 AI 제작 파이프라인", color: "#ed52cb" },
   { icon: "💬", title: "맞춤형 챗봇", desc: "내 업무에 특화된 AI 어시스턴트 구축", color: "#00d722" },
   { icon: "📣", title: "SNS 자동화", desc: "콘텐츠 기획부터 발행까지 자동화 시스템", color: "#ffae13" },
-];
-
-const SCHEDULE = [
-  { period: "5/30 – 6/2", phase: "1차 오픈 공지", msg: "2기 모집 시작, 6주 커리큘럼 공개", color: "#7a3dff" },
-  { period: "6/3 – 6/7",  phase: "가치 제안",    msg: "보고서, 리서치, 웹앱, 콘텐츠, 챗봇, SNS 자동화 결과물 강조", color: "#3b89ff" },
-  { period: "6/8 – 6/11", phase: "사례 중심 홍보", msg: "1기 피드백 반영, 2기 개선 포인트 안내", color: "#ff6b00" },
-  { period: "6/12 – 6/13", phase: "마감 임박",    msg: "6/14 개강, 신청 마감 안내", color: "#ed52cb" },
-  { period: "6/14",        phase: "개강 당일",     msg: "마지막 신청 안내 또는 대기자 접수", color: "#00d722" },
 ];
 
 const INCLUDES = [
@@ -807,85 +799,6 @@ function PricingSection() {
   );
 }
 
-function ScheduleSection() {
-  const { ref, visible } = useVisible();
-  return (
-    <section className="band" style={{ backgroundColor: "#ffffff" }}>
-      <div className="container">
-        <div style={{ marginBottom: "56px" }}>
-          <p className="eyebrow" style={{ marginBottom: "12px" }}>Promotion Schedule</p>
-          <h2 className="display-lg">홍보 일정</h2>
-        </div>
-
-        <div
-          ref={ref}
-          style={{ display: "flex", flexDirection: "column", gap: "0" }}
-        >
-          {SCHEDULE.map((item, i) => (
-            <div
-              key={i}
-              style={{
-                display: "flex",
-                gap: "0",
-                borderBottom: i < SCHEDULE.length - 1 ? "1px solid #d8d8d8" : "none",
-                opacity: visible ? 1 : 0,
-                transform: visible ? "translateY(0)" : "translateY(16px)",
-                transition: `opacity 0.4s ease ${i * 80}ms, transform 0.4s ease ${i * 80}ms`,
-              }}
-            >
-              {/* Color dot */}
-              <div
-                style={{
-                  width: "4px",
-                  backgroundColor: item.color,
-                  flexShrink: 0,
-                  borderRadius: i === 0 ? "4px 0 0 0" : i === SCHEDULE.length - 1 ? "0 0 0 4px" : "0",
-                }}
-              />
-
-              {/* Content */}
-              <div
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: "16px",
-                  padding: "20px 24px",
-                  flex: 1,
-                  alignItems: "center",
-                }}
-              >
-                <div
-                  style={{
-                    minWidth: "120px",
-                    fontSize: "13px",
-                    fontWeight: 600,
-                    color: "#080808",
-                    fontVariantNumeric: "tabular-nums",
-                  }}
-                >
-                  {item.period}
-                </div>
-                <div
-                  style={{
-                    minWidth: "120px",
-                    fontSize: "14px",
-                    fontWeight: 600,
-                    color: item.color,
-                  }}
-                >
-                  {item.phase}
-                </div>
-                <div style={{ fontSize: "14px", color: "#5a5a5a", flex: 1 }}>
-                  {item.msg}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function CtaSection({ onApply }: { onApply: () => void }) {
   return (
@@ -1046,8 +959,6 @@ export default function Home() {
       <hr className="divider" />
       <CurriculumSection />
       <PricingSection />
-      <hr className="divider" />
-      <ScheduleSection />
       <CtaSection onApply={handleApply} />
       <Footer />
     </div>
