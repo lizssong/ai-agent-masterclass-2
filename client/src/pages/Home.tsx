@@ -79,7 +79,7 @@ const INSTRUCTORS = [
     week: "1주차",
     specialty: "AI 업무설계 · 보고서 자동화",
     desc: "AI 기반 기획서·제안서 자동화 전문가. 컨설팅 현장에서 직접 검증한 AI 업무 시스템을 전달합니다.",
-    photo: "/manus-storage/face_hyungu_c03e7b17.webp",
+    photo: "/manus-storage/instructor_week1_16d35367.png",
     color: "#7a3dff",
   },
   {
@@ -87,7 +87,7 @@ const INSTRUCTORS = [
     week: "2주차",
     specialty: "AI 리서치 · 데이터 분석",
     desc: "방대한 데이터를 AI로 빠르게 분석하고 인사이트를 도출하는 실전 리서치 전문가입니다.",
-    photo: "/manus-storage/face_sungsik_22b97da1.webp",
+    photo: "/manus-storage/instructor_week2_77968ab4.png",
     color: "#3b89ff",
   },
   {
@@ -95,7 +95,7 @@ const INSTRUCTORS = [
     week: "3주차",
     specialty: "노코드 웹앱 · DB 설계",
     desc: "코딩 없이 실무에 바로 쓰는 웹앱을 만드는 노코드 전문가. 앤티그래비티 활용 강의를 담당합니다.",
-    photo: "/manus-storage/face_yongki_c6867873.webp",
+    photo: "/manus-storage/instructor_week3_4b7054a5.png",
     color: "#ff6b00",
   },
   {
@@ -103,7 +103,7 @@ const INSTRUCTORS = [
     week: "4주차",
     specialty: "AI 이미지 · 영상 콘텐츠",
     desc: "AI 아트 작가이자 캔바 지국장. 강의자료·홍보물·영상을 AI로 자동화하는 콘텐츠 전문가입니다.",
-    photo: "/manus-storage/face_minkyung_14909d2f.webp",
+    photo: "/manus-storage/instructor_week4_3c3152ac.png",
     color: "#ed52cb",
   },
   {
@@ -111,7 +111,7 @@ const INSTRUCTORS = [
     week: "5주차",
     specialty: "맞춤형 챗봇 · AI 어시스턴트",
     desc: "업무 특화 AI 챗봇 설계 전문가. 나만의 AI 어시스턴트를 직접 만들고 바로 활용하는 법을 알려드립니다.",
-    photo: "/manus-storage/face_sunglim_df37fdb1.webp",
+    photo: "/manus-storage/instructor_week5_caf52ced.png",
     color: "#00d722",
   },
   {
@@ -119,7 +119,7 @@ const INSTRUCTORS = [
     week: "6주차",
     specialty: "SNS 자동화 · 콘텐츠 시스템",
     desc: "SNS 콘텐츠 기획부터 발행까지 자동화 시스템을 구축하는 디지털 마케팅 전문가입니다.",
-    photo: "/manus-storage/face_jinkyung_e034ce81.webp",
+    photo: "/manus-storage/instructor_week6_3fe5a414.png",
     color: "#ffae13",
   },
 ];
@@ -594,7 +594,7 @@ function TargetSection() {
             { icon: "💼", label: "경영컨설턴트", desc: "보고서·제안서 자동화", color: "#7a3dff" },
             { icon: "🎤", label: "강사·코치",    desc: "강의 콘텐츠 자동화",   color: "#ed52cb" },
             { icon: "👤", label: "1인 전문가",   desc: "업무 시스템 구축",     color: "#3b89ff" },
-            { icon: "🤖", label: "AI 고관여자",  desc: "심화 활용 역량 강화",  color: "#ff6b00" },
+            { icon: "🤖", label: "AI 파워유저",  desc: "심화 활용 역량 강화",  color: "#ff6b00" },
           ].map((t, i) => (
             <div
               key={i}
