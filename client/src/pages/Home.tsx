@@ -354,12 +354,12 @@ function Nav({ onApply }: { onApply: () => void }) {
 
 function TickerBanner() {
   const items = [
-    "⚡ 2기 특별가 250,000원",
+    "🔥 얼리버드 D-DAY 6/6까지 250,000원",
     "📅 2026년 6월 14일 개강",
     "🕗 매주 일요일 저녁 8~10시",
     "👥 비개발자 전문가 대상",
     "🎓 6주 온라인 실시간",
-    "✅ 정가 50만원 → 2기 특별가 25만원",
+    "✅ 정가 60만원 → 2기 특별가 30만원",
   ];
   const doubled = [...items, ...items];
 
@@ -368,8 +368,9 @@ function TickerBanner() {
       style={{
         backgroundColor: "#080808",
         overflow: "hidden",
-        paddingTop: "10px",
-        paddingBottom: "10px",
+        height: "40px",
+        display: "flex",
+        alignItems: "center",
         marginTop: "57px",
       }}
     >
@@ -377,8 +378,9 @@ function TickerBanner() {
         className="ticker-track"
         style={{
           display: "flex",
-          gap: "48px",
+          gap: "56px",
           width: "max-content",
+          alignItems: "center",
         }}
       >
         {doubled.map((item, i) => (
@@ -389,7 +391,8 @@ function TickerBanner() {
               fontSize: "13px",
               fontWeight: 500,
               whiteSpace: "nowrap",
-              opacity: 0.85,
+              opacity: 0.9,
+              lineHeight: 1,
             }}
           >
             {item}
@@ -442,36 +445,37 @@ function HeroSection({ onApply }: { onApply: () => void }) {
             className="fade-up fade-up-d2"
             style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "16px", marginBottom: "48px" }}
           >
-            <button className="btn-primary" onClick={onApply} style={{ fontSize: "16px", padding: "14px 28px" }}>
+            <a
+              href="https://forms.gle/PfU6vq74nveeCUvn8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+              style={{ fontSize: "16px", padding: "14px 28px", textDecoration: "none" }}
+            >
               지금 신청하기 →
-            </button>
-            <div style={{ display: "flex", alignItems: "baseline", gap: "10px" }}>
-              <span
-                style={{
-                  fontSize: "16px",
-                  color: "#898989",
-                  textDecoration: "line-through",
-                  fontWeight: 500,
-                }}
-              >
-                500,000원
-              </span>
-              <span
-                style={{
-                  fontSize: "28px",
-                  fontWeight: 600,
-                  color: "#080808",
-                  letterSpacing: "-0.5px",
-                }}
-              >
-                250,000원
-              </span>
-              <span
-                className="badge badge-orange"
-                style={{ fontSize: "12px" }}
-              >
-                50% OFF
-              </span>
+            </a>
+            <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+              <div style={{ display: "flex", alignItems: "baseline", gap: "8px" }}>
+                <span style={{ fontSize: "14px", color: "#898989", textDecoration: "line-through", fontWeight: 500 }}>
+                  600,000원
+                </span>
+                <span style={{ fontSize: "26px", fontWeight: 600, color: "#080808", letterSpacing: "-0.5px" }}>
+                  300,000원
+                </span>
+                <span className="badge badge-orange" style={{ fontSize: "11px" }}>50% OFF</span>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                <span style={{
+                  backgroundColor: "#ee1d36",
+                  color: "#ffffff",
+                  fontSize: "11px",
+                  fontWeight: 700,
+                  padding: "2px 8px",
+                  borderRadius: "3px",
+                  letterSpacing: "0.3px",
+                }}>🔥 얼리버드</span>
+                <span style={{ fontSize: "13px", color: "#ee1d36", fontWeight: 600 }}>6/6까지 250,000원</span>
+              </div>
             </div>
           </div>
 
@@ -850,9 +854,19 @@ function PricingSection() {
             }}
           >
             <div style={{ marginBottom: "8px" }}>
-              <span className="badge badge-orange" style={{ marginBottom: "16px", display: "inline-block" }}>
-                2기 특별 모집가
-              </span>
+              <div style={{ display: "flex", gap: "8px", marginBottom: "16px", flexWrap: "wrap" }}>
+                <span className="badge badge-orange">2기 특별 모집가</span>
+                <span style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  backgroundColor: "#ee1d36",
+                  color: "#ffffff",
+                  fontSize: "12px",
+                  fontWeight: 700,
+                  padding: "4px 10px",
+                  borderRadius: "4px",
+                }}>🔥 얼리버드 6/6까지</span>
+              </div>
             </div>
 
             <div style={{ marginBottom: "24px" }}>
@@ -865,7 +879,7 @@ function PricingSection() {
                   marginBottom: "6px",
                 }}
               >
-                정가 500,000원
+                정가 600,000원
               </div>
               <div
                 style={{
@@ -883,7 +897,7 @@ function PricingSection() {
                     lineHeight: 1,
                   }}
                 >
-                  250,000
+                  300,000
                 </span>
                 <span style={{ fontSize: "20px", fontWeight: 500, color: "#363636" }}>원</span>
                 <span
@@ -901,26 +915,51 @@ function PricingSection() {
               </div>
             </div>
 
+            {/* 얼리버드 강조 박스 */}
+            <div
+              style={{
+                background: "linear-gradient(135deg, #fff3f3 0%, #fff8f0 100%)",
+                border: "1.5px solid #ee1d36",
+                borderRadius: "8px",
+                padding: "16px 20px",
+                marginBottom: "16px",
+              }}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px" }}>
+                <div>
+                  <div style={{ fontSize: "12px", fontWeight: 700, color: "#ee1d36", letterSpacing: "0.5px", marginBottom: "2px" }}>🔥 얼리버드 특가</div>
+                  <div style={{ fontSize: "24px", fontWeight: 700, color: "#080808", letterSpacing: "-0.5px", lineHeight: 1 }}>250,000원</div>
+                </div>
+                <div style={{ textAlign: "right" }}>
+                  <div style={{ fontSize: "12px", color: "#898989", marginBottom: "2px" }}>신청 마감</div>
+                  <div style={{ fontSize: "16px", fontWeight: 700, color: "#ee1d36" }}>2026. 6. 6 (토)</div>
+                </div>
+              </div>
+            </div>
+
             <div
               style={{
                 backgroundColor: "#f5f5f5",
                 borderRadius: "6px",
-                padding: "16px",
+                padding: "14px 16px",
                 marginBottom: "28px",
-                fontSize: "14px",
+                fontSize: "13px",
                 color: "#5a5a5a",
                 lineHeight: 1.7,
               }}
             >
-              2기 과정은 커리큘럼 고도화 및 수강생 피드백 반영 과정으로 특별가 적용
+              6/7 이후 신청 시 2기 특별가 300,000원 적용 · 커리큘럼 고도화 및 수강생 피드백 반영 과정
             </div>
 
-            <button
+            <a
+              href="https://forms.gle/PfU6vq74nveeCUvn8"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-primary"
-              style={{ width: "100%", justifyContent: "center", padding: "16px", fontSize: "16px" }}
+              style={{ width: "100%", justifyContent: "center", padding: "16px", fontSize: "16px", textDecoration: "none", display: "flex" }}
             >
               2기 수강 신청하기 →
-            </button>
+            </a>
           </div>
 
           {/* Includes list */}
@@ -1004,8 +1043,8 @@ function CtaSection({ onApply }: { onApply: () => void }) {
             margin: "0 auto 20px",
           }}
         >
-          지금 신청하고{"\n"}
-          2기 특별가를 놓치지 마세요
+          얼리버드 6/6까지{"\n"}
+          250,000원으로 신청하세요
         </h2>
 
         <p
@@ -1031,18 +1070,21 @@ function CtaSection({ onApply }: { onApply: () => void }) {
             alignItems: "center",
           }}
         >
-          <button
+          <a
+            href="https://forms.gle/PfU6vq74nveeCUvn8"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-primary"
-            onClick={onApply}
             style={{
               backgroundColor: "#ffffff",
               color: "#080808",
               padding: "16px 36px",
               fontSize: "16px",
+              textDecoration: "none",
             }}
           >
             수강 신청하기 →
-          </button>
+          </a>
           <div
             style={{
               display: "flex",
@@ -1114,8 +1156,7 @@ function Footer() {
 
 export default function Home() {
   const handleApply = () => {
-    const el = document.getElementById("apply");
-    el?.scrollIntoView({ behavior: "smooth" });
+    window.open("https://forms.gle/PfU6vq74nveeCUvn8", "_blank", "noopener,noreferrer");
   };
 
   return (
