@@ -368,7 +368,7 @@ function TickerBanner() {
       style={{
         backgroundColor: "#080808",
         overflow: "hidden",
-        height: "40px",
+        height: "48px",
         display: "flex",
         alignItems: "center",
         marginTop: "57px",
@@ -459,22 +459,14 @@ function HeroSection({ onApply }: { onApply: () => void }) {
                 <span style={{ fontSize: "14px", color: "#898989", textDecoration: "line-through", fontWeight: 500 }}>
                   600,000원
                 </span>
-                <span style={{ fontSize: "26px", fontWeight: 600, color: "#080808", letterSpacing: "-0.5px" }}>
-                  300,000원
+                <span style={{ fontSize: "26px", fontWeight: 700, color: "#ee1d36", letterSpacing: "-0.5px" }}>
+                  250,000원
                 </span>
-                <span className="badge badge-orange" style={{ fontSize: "11px" }}>50% OFF</span>
+                <span style={{ fontSize: "11px", backgroundColor: "#ee1d36", color: "#fff", padding: "2px 7px", borderRadius: "3px", fontWeight: 700 }}>얼리버드</span>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                <span style={{
-                  backgroundColor: "#ee1d36",
-                  color: "#ffffff",
-                  fontSize: "11px",
-                  fontWeight: 700,
-                  padding: "2px 8px",
-                  borderRadius: "3px",
-                  letterSpacing: "0.3px",
-                }}>🔥 얼리버드</span>
-                <span style={{ fontSize: "13px", color: "#ee1d36", fontWeight: 600 }}>6/6까지 250,000원</span>
+                <span style={{ fontSize: "12px", color: "#ee1d36", fontWeight: 600 }}>🔥 6/6(토)까지 —</span>
+                <span style={{ fontSize: "12px", color: "#5a5a5a", fontWeight: 500 }}>6/7부터 300,000원</span>
               </div>
             </div>
           </div>
@@ -891,49 +883,47 @@ function PricingSection() {
                 <span
                   style={{
                     fontSize: "clamp(40px, 6vw, 56px)",
-                    fontWeight: 600,
-                    color: "#080808",
+                    fontWeight: 700,
+                    color: "#ee1d36",
                     letterSpacing: "-1px",
                     lineHeight: 1,
                   }}
                 >
-                  300,000
+                  250,000
                 </span>
                 <span style={{ fontSize: "20px", fontWeight: 500, color: "#363636" }}>원</span>
                 <span
                   style={{
-                    backgroundColor: "#ff6b00",
+                    backgroundColor: "#ee1d36",
                     color: "#ffffff",
                     fontSize: "13px",
-                    fontWeight: 600,
+                    fontWeight: 700,
                     padding: "4px 10px",
                     borderRadius: "4px",
                   }}
                 >
-                  50% OFF
+                  얼리버드
                 </span>
               </div>
             </div>
 
-            {/* 얼리버드 강조 박스 */}
+            {/* 얼리버드 안내 박스 */}
             <div
               style={{
-                background: "linear-gradient(135deg, #fff3f3 0%, #fff8f0 100%)",
-                border: "1.5px solid #ee1d36",
+                background: "#fff8f0",
+                border: "1.5px solid #ff6b00",
                 borderRadius: "8px",
-                padding: "16px 20px",
-                marginBottom: "16px",
+                padding: "14px 18px",
+                marginBottom: "12px",
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
               }}
             >
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px" }}>
-                <div>
-                  <div style={{ fontSize: "12px", fontWeight: 700, color: "#ee1d36", letterSpacing: "0.5px", marginBottom: "2px" }}>🔥 얼리버드 특가</div>
-                  <div style={{ fontSize: "24px", fontWeight: 700, color: "#080808", letterSpacing: "-0.5px", lineHeight: 1 }}>250,000원</div>
-                </div>
-                <div style={{ textAlign: "right" }}>
-                  <div style={{ fontSize: "12px", color: "#898989", marginBottom: "2px" }}>신청 마감</div>
-                  <div style={{ fontSize: "16px", fontWeight: 700, color: "#ee1d36" }}>2026. 6. 6 (토)</div>
-                </div>
+              <span style={{ fontSize: "20px" }}>🔥</span>
+              <div>
+                <div style={{ fontSize: "13px", fontWeight: 700, color: "#ff6b00" }}>얼리버드 특가 — 6/6(토)까지 신청 시 250,000원</div>
+                <div style={{ fontSize: "12px", color: "#5a5a5a", marginTop: "2px" }}>6/7(일)부터 2기 특별가 300,000원으로 변경됩니다</div>
               </div>
             </div>
 
