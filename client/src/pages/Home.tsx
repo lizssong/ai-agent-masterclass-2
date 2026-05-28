@@ -102,7 +102,7 @@ const INSTRUCTORS = [
     name: "송민경",
     week: "4주차",
     specialty: "AI 이미지 · 영상 콘텐츠",
-    desc: "AI 아트 작가이자 캔바 지국장. 강의자료·홍보물·영상을 AI로 자동화하는 콘텐츠 전문가입니다.",
+    desc: "AI 콘텐츠 디자이너이자 캔바 지국장. 강의자료·홍보물·영상을 AI로 자동화하는 콘텐츠 전문가입니다.",
     photo: "/manus-storage/instructor_week4_3c3152ac.png",
     color: "#ed52cb",
   },
@@ -403,7 +403,30 @@ function TickerBanner() {
   );
 }
 
+function useCountdown(targetDate: string) {
+  const calc = () => {
+    const now = new Date();
+    const target = new Date(targetDate + "T23:59:59");
+    const diff = target.getTime() - now.getTime();
+    if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0, expired: true };
+    return {
+      days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+      minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
+      seconds: Math.floor((diff % (1000 * 60)) / 1000),
+      expired: false,
+    };
+  };
+  const [time, setTime] = useState(calc);
+  useEffect(() => {
+    const id = setInterval(() => setTime(calc()), 1000);
+    return () => clearInterval(id);
+  }, []);
+  return time;
+}
+
 function HeroSection({ onApply }: { onApply: () => void }) {
+  const countdown = useCountdown("2026-06-06");
   return (
     <section
       style={{
@@ -419,6 +442,78 @@ function HeroSection({ onApply }: { onApply: () => void }) {
             <span className="badge badge-info">2기 모집 중</span>
             <span className="badge badge-soft">2026.06.14 개강</span>
           </div>
+
+          {/* D-Day 카운트다운 */}
+          {!countdown.expired && (
+            <div
+              className="fade-up"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "12px",
+                backgroundColor: "#fff3f0",
+                border: "1.5px solid #ee1d36",
+                borderRadius: "10px",
+                padding: "12px 20px",
+                marginBottom: "28px",
+              }}
+            >
+              <span style={{ fontSize: "13px", fontWeight: 700, color: "#ee1d36", whiteSpace: "nowrap" }}>
+                🔥 얼리버드 마감까지
+              </span>
+              <div style={{ display: "flex", gap: "6px", alignItems: "center" }}>
+                {[
+                  { val: countdown.days, label: "일" },
+                  { val: countdown.hours, label: "시간" },
+                  { val: countdown.minutes, label: "분" },
+                  { val: countdown.seconds, label: "초" },
+                ].map((item, i) => (
+                  <div key={i} style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                    {i > 0 && <span style={{ color: "#ee1d36", fontWeight: 700, fontSize: "16px" }}>:</span>}
+                    <div style={{ textAlign: "center" }}>
+                      <div
+                        style={{
+                          backgroundColor: "#ee1d36",
+                          color: "#ffffff",
+                          fontSize: "18px",
+                          fontWeight: 700,
+                          width: "40px",
+                          height: "40px",
+                          borderRadius: "6px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          letterSpacing: "-0.5px",
+                          fontVariantNumeric: "tabular-nums",
+                        }}
+                      >
+                        {String(item.val).padStart(2, "0")}
+                      </div>
+                      <div style={{ fontSize: "10px", color: "#898989", marginTop: "3px", fontWeight: 500 }}>{item.label}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <span style={{ fontSize: "12px", color: "#5a5a5a", whiteSpace: "nowrap" }}>6/6(토) 마감</span>
+            </div>
+          )}
+          {countdown.expired && (
+            <div
+              className="fade-up"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                backgroundColor: "#f5f5f5",
+                border: "1.5px solid #d0d0d0",
+                borderRadius: "10px",
+                padding: "12px 20px",
+                marginBottom: "28px",
+              }}
+            >
+              <span style={{ fontSize: "13px", fontWeight: 700, color: "#5a5a5a" }}>얼리버드 마감 · 2기 특별가 300,000원 적용 중</span>
+            </div>
+          )}
 
           {/* Headline */}
           <h1
